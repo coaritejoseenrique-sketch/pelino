@@ -1,0 +1,578 @@
+ /* --- Globales y Reset --- */
+ body {
+    background-image: url(../imagenes/unnamed.png);
+     font-family: Arial, sans-serif;
+     /* Fuente sans-serif predeterminada */
+     margin: 0;
+     padding: 0;
+     background-color: #0A0A0A;
+     /* Fondo negro dominante */
+     color: #E0E0E0;
+     /* Texto claro */
+     line-height: 1.6;
+     scroll-behavior: smooth;
+     overflow-x: hidden;
+     /* Evitar scroll horizontal por diseños asimétricos */
+ }
+
+ h1,
+ h2,
+ h3 {
+     font-family: 'Segoe UI', sans-serif;
+     /* Otra sans-serif si está disponible, o fallback */
+     color: #F8F8F8;
+     text-align: center;
+     margin-bottom: 0.8em;
+     letter-spacing: 1px;
+     /* Espaciado para un look más moderno */
+     text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+     /* Ligero brillo */
+ }
+
+ h1 {
+     font-size: 3.8em;
+     /* Más grande */
+     line-height: 1.1;
+     text-transform: uppercase;
+     text-shadow: 0 0 15px rgba(255, 255, 255, 0.2), 0 0 5px #FF5722;
+     /* Sombra con toque de acento */
+ }
+
+ h2 {
+     font-size: 2.5em;
+     padding-top: 1.5em;
+     text-transform: uppercase;
+     color: #F0F0F0;
+     position: relative;
+     padding-bottom: 0.5em;
+     margin-bottom: 2em;
+ }
+
+ h2::after {
+     /* Subrayado de acento */
+     content: '';
+     position: absolute;
+     left: 50%;
+     transform: translateX(-50%);
+     bottom: 0;
+     width: 80px;
+     height: 4px;
+     background-color: #FFC107;
+     /* Dorado vibrante */
+     border-radius: 2px;
+ }
+
+ h3 {
+     font-size: 1.6em;
+     color: #F8F8F8;
+ }
+
+ p {
+     margin-bottom: 1em;
+ }
+
+ .subtitle {
+     text-align: center;
+     font-size: 1.15em;
+     color: #B0B0B0;
+     margin-bottom: 3em;
+     max-width: 800px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ a {
+     color: #FFC107;
+     /* Dorado vibrante para enlaces */
+     text-decoration: none;
+     transition: color 0.3s ease;
+ }
+
+ a:hover {
+     color: #FFD54F;
+     /* Dorado más claro al hover */
+     text-decoration: underline;
+ }
+
+ /* --- Placeholders de Elementos Visuales --- */
+ .logo-placeholder {
+     width: 200px;
+     height: 70px;
+     background-image: linear-gradient(to right, #FF5722, #E64A19);
+     /* Gradiente rojo */
+     color: white;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin: 0 auto 2em;
+     border-radius: 12px;
+     font-size: 2.2em;
+     font-weight: bold;
+     letter-spacing: 3px;
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+     /* Sombra más profunda */
+     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+ }
+
+ .logo-placeholder span {
+     font-size: 0.7em;
+     margin-left: 8px;
+     font-weight: normal;
+     background-color: rgba(255, 255, 255, 0.15);
+     padding: 0 7px;
+     border-radius: 5px;
+ }
+
+ .poster-placeholder {
+     width: 100%;
+     height: 350px;
+     /* Altura de póster un poco más grande */
+     color: white;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-bottom: 1em;
+     border-radius: 10px;
+     font-size: 1.3em;
+     font-weight: bold;
+     text-transform: uppercase;
+     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+     background-size: cover;
+     background-position: center;
+     border: 1px solid rgba(255, 255, 255, 0.1);
+     /* Borde sutil */
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+ }
+
+ .poster-placeholder:hover {
+     transform: scale(1.02);
+     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+ }
+
+ /* Gradientes específicos para los pósters */
+ .poster-gradient-1 {
+     background-image: linear-gradient(to top right, #8A2BE2, #4B0082);
+ }
+
+ /* Púrpura */
+ .poster-gradient-2 {
+     background-image: linear-gradient(to top right, #20B2AA, #008080);
+ }
+
+ /* Turquesa */
+ .poster-gradient-3 {
+     background-image: linear-gradient(to top right, #FF4500, #CD5C5C);
+ }
+
+ /* Naranja/Rojo */
+ .poster-gradient-4 {
+     background-image: linear-gradient(to top right, #32CD32, #228B22);
+ }
+
+ /* Verde */
+
+
+ /* --- Sección Hero --- */
+ .hero {
+     background-image: linear-gradient(135deg, #1A1A1A 0%, #3A0F1A 100%);
+     /* Gradiente oscuro */
+     color: white;
+     text-align: center;
+     padding: 8em 1em;
+     /* Más padding */
+     min-height: 80vh;
+     /* Más altura */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     position: relative;
+     overflow: hidden;
+     border-bottom: 3px solid #FFC107;
+     /* Borde inferior de acento */
+ }
+
+ /* Patrón de puntos para el fondo del hero */
+ .hero::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+     background-size: 30px 30px;
+     z-index: 0;
+ }
+
+ .hero-content {
+     position: relative;
+     z-index: 1;
+     max-width: 900px;
+ }
+
+ .hero p {
+     font-size: 1.3em;
+     margin-bottom: 2.5em;
+     color: #C0C0C0;
+     max-width: 600px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ .btn {
+     background-color: #FFC107;
+     /* Botón dorado */
+     color: #333;
+     padding: 1.2em 2.5em;
+     /* Más padding */
+     border-radius: 50px;
+     /* Completamente redondo */
+     font-weight: bold;
+     letter-spacing: 1.5px;
+     text-transform: uppercase;
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 10px #FFC107;
+     /* Sombra y brillo de acento */
+     transition: all 0.3s ease;
+     border: none;
+ }
+
+ .btn:hover {
+     background-color: #FFD54F;
+     transform: translateY(-5px) scale(1.02);
+     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6), 0 0 15px #FFD54F;
+ }
+
+ /* --- Secciones Generales --- */
+ section {
+     padding: 5em 1.5em;
+     max-width: 1200px;
+     margin: 0 auto;
+     position: relative;
+ }
+
+ /* --- Spotlight Section (Qué te espera) --- */
+ .spotlight-section {
+     background-color: #1A1A1A;
+     /* Fondo más oscuro */
+     color: #E0E0E0;
+     border-radius: 15px;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+     margin-top: -6em;
+     /* Superposición grande con el hero */
+     position: relative;
+     z-index: 2;
+     padding-bottom: 3em;
+     /* Ajuste para el h2 */
+ }
+
+ .spotlight-grid {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+     /* Distribución equitativa */
+     gap: 2.5em;
+     margin-top: 3em;
+ }
+
+ .spotlight-item {
+     background-image: linear-gradient(to bottom, #2C2C2C, #181818);
+     /* Gradiente oscuro */
+     padding: 2.5em;
+     border-radius: 15px;
+     flex: 1;
+     min-width: 300px;
+     max-width: 380px;
+     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+     border: 1px solid rgba(255, 255, 255, 0.08);
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     text-align: center;
+ }
+
+ .spotlight-item:hover {
+     transform: translateY(-8px) scale(1.01);
+     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+     border-color: #FFC107;
+     /* Borde de acento al hover */
+ }
+
+ .spotlight-item h3 {
+     font-size: 1.8em;
+     color: #FF5722;
+     /* Rojo de acento */
+     margin-bottom: 0.8em;
+     text-transform: uppercase;
+     text-shadow: 0 0 5px rgba(255, 87, 34, 0.3);
+ }
+
+ .spotlight-item p {
+     font-size: 1.05em;
+     color: #B0B0B0;
+     max-width: 90%;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ /* --- Cartelera Section --- */
+ .cartelera-section {
+     background-color: #0A0A0A;
+     /* Continúa el fondo negro */
+     padding-top: 2em;
+     /* Menos padding superior si la anterior sección se superpone */
+ }
+
+ .movie-list {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 3em;
+     margin-top: 3em;
+ }
+
+ .movie-item {
+     background-image: linear-gradient(to bottom, #181818, #000);
+     padding: 1.5em;
+     border-radius: 12px;
+     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+     text-align: left;
+     width: 250px;
+     /* Ancho fijo para las tarjetas */
+     border: 1px solid rgba(255, 255, 255, 0.05);
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+ }
+
+ .movie-item:hover {
+     transform: translateY(-10px) scale(1.02);
+     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+     border-color: #FF5722;
+     /* Borde de acento */
+ }
+
+ .movie-item h3 {
+     font-size: 1.3em;
+     margin-bottom: 0.4em;
+     color: #F8F8F8;
+     text-align: left;
+ }
+
+ .movie-item p {
+     font-size: 0.9em;
+     color: #A0A0A0;
+     margin-bottom: 0.4em;
+     text-align: left;
+ }
+
+ .movie-item p strong {
+     color: #E0E0E0;
+ }
+
+ /* --- Sedes Section --- */
+ .sedes-section {
+     background-color: #1A1A1A;
+     color: #E0E0E0;
+     padding-bottom: 6em;
+ }
+
+ .sede-grid {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+     gap: 3em;
+     margin-top: 3em;
+ }
+
+ .sede-item {
+     background-image: linear-gradient(to bottom, #2C2C2C, #181818);
+     padding: 2.5em;
+     border-radius: 15px;
+     flex: 1;
+     min-width: 300px;
+     max-width: 500px;
+     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+     border: 1px solid rgba(255, 255, 255, 0.08);
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+ }
+
+ .sede-item:hover {
+     transform: translateY(-8px) scale(1.01);
+     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+     border-color: #FFC107;
+ }
+
+ .sede-item h3 {
+     font-size: 1.8em;
+     margin-bottom: 0.6em;
+     color: #F8F8F8;
+     text-align: left;
+     text-transform: uppercase;
+     border-bottom: 2px solid #FF5722;
+     /* Subrayado de acento */
+     padding-bottom: 0.3em;
+     display: inline-block;
+     /* Para que el subrayado se ajuste al texto */
+ }
+
+ .sede-item p {
+     margin-bottom: 0.5em;
+     color: #A0A0A0;
+     text-align: left;
+ }
+
+ .sede-item .sede-desc {
+     font-size: 1em;
+     color: #B0B0B0;
+     font-style: italic;
+     margin-top: 1.5em;
+ }
+
+ /* --- Footer --- */
+ .footer {
+     background-color: #000;
+     /* Fondo del footer completamente negro */
+     color: #B0B0B0;
+     text-align: center;
+     padding: 3em 1em;
+     font-size: 0.9em;
+     border-top: 1px solid rgba(255, 255, 255, 0.05);
+     /* Borde superior sutil */
+ }
+
+ .footer p {
+     margin: 0.8em 0;
+ }
+
+ .footer a {
+     color: #FFC107;
+     transition: color 0.3s ease;
+ }
+
+ .footer a:hover {
+     color: #FFD54F;
+     text-decoration: none;
+ }
+
+ .footer-content {
+     max-width: 800px;
+     margin: 0 auto;
+ }
+
+ .hashtag {
+     font-weight: bold;
+     color: #FF5722;
+     font-size: 1em;
+     margin-top: 1.5em;
+ }
+
+ .copyright {
+     font-size: 0.8em;
+     color: #777;
+     margin-top: 2em;
+ }
+
+ /* --- Media Queries (Responsividad) --- */
+ @media (max-width: 992px) {
+     h1 {
+         font-size: 3em;
+     }
+
+     h2 {
+         font-size: 2em;
+     }
+
+     .hero {
+         padding: 6em 1em;
+         min-height: 60vh;
+     }
+
+     .hero p {
+         font-size: 1.1em;
+     }
+
+     .btn {
+         padding: 1em 2em;
+         font-size: 0.9em;
+     }
+
+     .spotlight-grid,
+     .movie-list,
+     .sede-grid {
+         gap: 2em;
+     }
+
+     .spotlight-item,
+     .movie-item,
+     .sede-item {
+         max-width: 45%;
+         /* Dos columnas */
+     }
+ }
+
+ @media (max-width: 768px) {
+     h1 {
+         font-size: 2.5em;
+     }
+
+     h2 {
+         font-size: 1.8em;
+     }
+
+     .hero {
+         min-height: 50vh;
+     }
+
+     .hero p {
+         font-size: 1em;
+     }
+
+     .spotlight-item,
+     .movie-item,
+     .sede-item {
+         max-width: 90%;
+         /* Una columna */
+         min-width: unset;
+         width: 90%;
+     }
+
+     .poster-placeholder {
+         height: 300px;
+     }
+
+     .spotlight-section {
+         margin-top: -4em;
+     }
+ }
+
+ @media (max-width: 480px) {
+     h1 {
+         font-size: 2em;
+         letter-spacing: 0.5px;
+     }
+
+     h2 {
+         font-size: 1.5em;
+     }
+
+     .logo-placeholder {
+         width: 150px;
+         height: 55px;
+         font-size: 1.8em;
+         letter-spacing: 2px;
+     }
+
+     .hero p {
+         font-size: 0.9em;
+     }
+
+     .btn {
+         padding: 0.9em 1.8em;
+         font-size: 0.85em;
+     }
+
+     .spotlight-item h3 {
+         font-size: 1.5em;
+     }
+
+     .poster-placeholder {
+         height: 250px;
+     }
+ }
